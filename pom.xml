@@ -22,11 +22,12 @@
     </properties>
 
     <modules>
-        <module>service-common</module>
-        <module>service-resume</module>
-        <module>service-autodeliver</module>
         <module>eureka</module>
         <module>eureka2</module>
+        <module>service-common</module>
+        <module>service-resume</module>
+        <module>service-resume2</module>
+        <module>service-autodeliver</module>
     </modules>
 
     <dependencyManagement>

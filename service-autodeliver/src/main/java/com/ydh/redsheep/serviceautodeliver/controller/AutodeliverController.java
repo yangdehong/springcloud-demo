@@ -28,41 +28,41 @@ public class AutodeliverController {
     @Resource
     private DiscoveryClient discoveryClient;
 
+//    /**
+//     * 服务注册到Eureka之后的改造
+//     * @param userId
+//     * @return
+//     */
+//    @GetMapping("/checkState")
+//    public Integer findResumeOpenState(@RequestParam Long userId) {
+//        // TODO 从Eureka Server中获取我们关注的那个服务的实例信息以及接口信息
+//        // 1、从 Eureka Server中获取service-resume服务的实例信息（使用客户端对象做这件事）
+//        List<ServiceInstance> instances = discoveryClient.getInstances("service-resume");
+//        // 2、如果有多个实例，选择一个使用(负载均衡的过程)
+//        ServiceInstance serviceInstance = instances.get(0);
+//        // 3、从元数据信息获取host port
+//        String host = serviceInstance.getHost();
+//        int port = serviceInstance.getPort();
+//        String url = "http://" + host + ":" + port + "/resume/openstate?userId=" + userId;
+//        System.out.println("===============>>>从EurekaServer集群获取服务实例拼接的url：" + url);
+//        // 调用远程服务—> 简历微服务接口  RestTemplate  -> JdbcTempate
+//        // httpclient封装好多内容进行远程调用
+//        Integer forObject = restTemplate.getForObject(url, Integer.class);
+//        return forObject;
+//    }
+
     /**
-     * 服务注册到Eureka之后的改造
+     * 使用Ribbon负载均衡
      * @param userId
      * @return
      */
     @GetMapping("/checkState")
     public Integer findResumeOpenState(@RequestParam Long userId) {
-        // TODO 从Eureka Server中获取我们关注的那个服务的实例信息以及接口信息
-        // 1、从 Eureka Server中获取service-resume服务的实例信息（使用客户端对象做这件事）
-        List<ServiceInstance> instances = discoveryClient.getInstances("service-resume");
-        // 2、如果有多个实例，选择一个使用(负载均衡的过程)
-        ServiceInstance serviceInstance = instances.get(0);
-        // 3、从元数据信息获取host port
-        String host = serviceInstance.getHost();
-        int port = serviceInstance.getPort();
-        String url = "http://" + host + ":" + port + "/resume/openstate?userId=" + userId;
-        System.out.println("===============>>>从EurekaServer集群获取服务实例拼接的url：" + url);
-        // 调用远程服务—> 简历微服务接口  RestTemplate  -> JdbcTempate
-        // httpclient封装好多内容进行远程调用
+        // 使用ribbon不需要我们自己获取服务实例然后选择一个那么去访问了（自己的负载均衡）
+        String url = "http://service-resume/resume/openstate?userId=" + userId;  // 指定服务名
         Integer forObject = restTemplate.getForObject(url, Integer.class);
         return forObject;
     }
-
-//    /**
-//     * 使用Ribbon负载均衡
-//     * @param userId
-//     * @return
-//     */
-//    @GetMapping("/checkState/{userId}")
-//    public Integer findResumeOpenState(@PathVariable Long userId) {
-//        // 使用ribbon不需要我们自己获取服务实例然后选择一个那么去访问了（自己的负载均衡）
-//        String url = "http://lagou-service-resume/resume/openstate/" + userId;  // 指定服务名
-//        Integer forObject = restTemplate.getForObject(url, Integer.class);
-//        return forObject;
-//    }
 
 
 

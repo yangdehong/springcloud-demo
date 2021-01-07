@@ -18,12 +18,15 @@
     <properties>
         <java.version>1.8</java.version>
         <springboot.version>2.2.6.RELEASE</springboot.version>
+        <spring.cloud-version>Hoxton.SR9</spring.cloud-version>
     </properties>
 
     <modules>
         <module>service-common</module>
         <module>service-resume</module>
         <module>service-autodeliver</module>
+        <module>eureka</module>
+        <module>eureka2</module>
     </modules>
 
     <dependencyManagement>
@@ -79,7 +82,7 @@
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Greenwich.RELEASE</version>
+                <version>${spring.cloud-version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>

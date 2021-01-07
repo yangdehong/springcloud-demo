@@ -9,9 +9,9 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
     <groupId>com.ydh.redsheep</groupId>
-    <artifactId>service-autodeliver</artifactId>
+    <artifactId>eureka</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>service-autodeliver</name>
+    <name>eureka</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
@@ -23,7 +23,7 @@
         <!--Eureka server依赖-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+            <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
         </dependency>
 
         <dependency>

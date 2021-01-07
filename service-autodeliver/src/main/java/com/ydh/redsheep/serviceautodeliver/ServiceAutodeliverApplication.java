@@ -3,9 +3,13 @@ package com.ydh.redsheep.serviceautodeliver;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
+//@EnableEurekaClient  // 开启Eureka Client（Eureka独有）
+@EnableDiscoveryClient // 开启注册中心客户端 （通用型注解，比如注册到Eureka、Nacos等）
+// 说明：从SpringCloud的Edgware版本开始，不加注解也ok，但是建议大家加上
 @SpringBootApplication
 public class ServiceAutodeliverApplication {
 

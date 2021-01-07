@@ -26,6 +26,12 @@
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
 
+        <!--Eureka server依赖-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
+
         <!-- 日志 -->
         <dependency>
             <groupId>log4j</groupId>

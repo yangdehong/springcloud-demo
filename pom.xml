@@ -81,7 +81,6 @@
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
                 <version>1.18.4</version>
-                <scope>provided</scope>
             </dependency>
             <!--spring cloud依赖管理，引入了Spring Cloud的版本-->
             <dependency>

@@ -29,6 +29,7 @@
         <module>service-resume2</module>
         <module>service-autodeliver</module>
         <module>hystrix-dashboard</module>
+        <module>hystrix-turbine</module>
     </modules>
 
     <dependencyManagement>

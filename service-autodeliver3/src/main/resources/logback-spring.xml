@@ -24,7 +24,9 @@
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <!-- 每天一归档 -->
             <fileNamePattern>${LOG_FILE_PATH}/base.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
-            <maxFileSize>100MB</maxFileSize>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>100MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
             <!-- 保存7天日志，文件总大小在3GB -->
             <maxHistory>7</maxHistory>
             <totalSizeCap>50GB</totalSizeCap>

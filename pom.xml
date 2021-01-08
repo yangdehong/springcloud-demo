@@ -28,6 +28,8 @@
         <module>service-resume</module>
         <module>service-resume2</module>
         <module>service-autodeliver</module>
+        <module>service-autodeliver2</module>
+        <module>service-autodeliver3</module>
         <module>hystrix-dashboard</module>
         <module>hystrix-turbine</module>
     </modules>

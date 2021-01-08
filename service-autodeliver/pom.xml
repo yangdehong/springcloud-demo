@@ -20,6 +20,16 @@
 
     <dependencies>
 
+        <!--监控中心-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        <!--熔断器-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+        </dependency>
         <!--Eureka server依赖-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>

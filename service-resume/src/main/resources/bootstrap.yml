@@ -1,0 +1,18 @@
+spring:
+  cloud:
+    # config客户端配置,和ConfigServer通信，并告知ConfigServer希望获取的配置信息在哪个文件中
+    config:
+      name: service-resume  #配置文件名称
+      profile: dev  #后缀名称
+      label: main #分支名称
+      uri: http://localhost:9200    #ConfigServer配置中心地址
+#  rabbitmq:
+#    host: 127.0.0.1
+#    port: 5672
+#    username: guest
+#    password: guest
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

@@ -33,6 +33,7 @@
         <module>hystrix-dashboard</module>
         <module>hystrix-turbine</module>
         <module>gateway</module>
+        <module>configserver</module>
     </modules>
 
     <dependencyManagement>

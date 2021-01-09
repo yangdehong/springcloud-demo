@@ -32,6 +32,7 @@
         <module>service-autodeliver3</module>
         <module>hystrix-dashboard</module>
         <module>hystrix-turbine</module>
+        <module>gateway</module>
     </modules>
 
     <dependencyManagement>

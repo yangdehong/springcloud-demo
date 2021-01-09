@@ -23,11 +23,11 @@ public class ResumeController {
     @GetMapping("/openstate")
     public Integer findDefaultResumeState(@RequestParam Long userId) {
         // 模拟处理超时
-        try {
-            Thread.sleep(10000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            Thread.sleep(10000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
         resumeService.findDefaultResumeByUserId(userId).getIsOpenResume();
         log.debug("====>>>>>>>>>>>>>>我是8080，访问到我这里了......");
         return port;

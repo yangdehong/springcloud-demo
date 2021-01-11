@@ -22,11 +22,11 @@ spring:
             - config-repo
       # 读取分支
       label: main
-#  rabbitmq:
-#    host: 127.0.0.1
-#    port: 5672
-#    username: guest
-#    password: guest
+  rabbitmq:
+    host: http://172.16.131.9
+    port: 5672
+    username: guest
+    password: guest
 #针对的被调用方微服务名称,不加就是全局生效
 #lagou-service-resume:
 #  ribbon:

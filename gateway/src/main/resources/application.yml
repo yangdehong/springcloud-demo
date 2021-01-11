@@ -27,9 +27,9 @@ spring:
             - Path=/resume/**
 #          filters:
 #            - StripPrefix=1 # 去掉一个格式 /resume/openstate/1545132 变成 /openstate/1545132
-        - id: login
-            uri: lb://login
-            predicates:
-              - Path=/api/**
+#        - id: login
+#            uri: lb://login
+#            predicates:
+#              - Path=/api/**
 logging:
   config: classpath:logback-spring.xml

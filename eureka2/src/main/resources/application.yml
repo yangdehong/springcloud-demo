@@ -1,0 +1,24 @@
+server:
+  port: 8762
+spring:
+  application:
+    name: eureka
+eureka:
+  instance:
+    # 当前eureka实例的主机名
+    hostname: ydh2.com
+  client:
+    # 是否从eureka获取数据，单个服务自己就是注册中心设置成false，集群模式下可以改成true
+    fetch-registry: true
+    # 是否向eureka注册服务，单个服务自己就是注册中心设置成false，集群模式下可以改成true
+    register-with-eureka: true
+    service-url:
+      # 配置客户端所交互的Eureka Server的地址（Eureka Server集群中每一个Server其实相对于其它Server来说都是Client）
+      # 集群模式下，defaultZone应该指向其它Eureka Server，如果有更多其它Server实例，逗号拼接即可
+      defaultZone: http://ydh.com:8761/eureka
+#  server:
+#    # 检查，如果发现实例在在一定时间(此值由客户端设置的 eureka.instance.lease-expiration-duration-in-seconds定义，默认值为90s)内
+#    # 没有收到心跳，则会注销此实例
+#    eviction-interval-timer-in-ms: 90
+#    # 关闭自我保护模式(缺省为打开)
+#    enable-self-preservation: true

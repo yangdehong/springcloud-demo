@@ -1,0 +1,43 @@
+server:
+  port: 8090
+
+spring:
+  application:
+   name: service-autodeliver
+
+logging:
+  config: classpath:logback-spring.xml
+
+eureka:
+  client:
+   # 注册到集群，就把多个Eurekaserver地址使用逗号连接起来即可；注册到单实例（非集群模式），那就写一个就ok
+   service-url:
+    defaultZone: http://ydh.com:8761/eureka,http://ydh2.com:8762/eureka
+  instance:
+    #使用ip注册，否则会使用主机名注册了(此处考虑到对老版本的兼容，新版本经过实验都是ip)
+    ip-address: true
+    # 实例名称： 192.168.1.103:service-resume:8080，我们可以自定义它，这里注释
+    instance-id: ${spring.cloud.client.ip-address}:${spring.application.name}:${server.port}:@project.version@
+#负载策略调整
+#针对的被调用方微服务名称,不加就是全局生效service-resume:
+#service-resume.ribbon.NFLoadBalancerRuleClassName=com.netflix.loadbalancer.RoundRobinRule
+# 配置熔断策略
+## 强制打开熔断器，如果该属性设置为true，强制断路器进入打开状态，将会拒绝所有的请求。 默认false关闭的
+#hystrix.command.default.circuitBreaker.forceOpen=false
+## 触发熔断错误比例阈值，默认值50%
+#hystrix.command.default.circuitBreaker.errorThresholdPercentage=50
+## 熔断后休眠时⻓，默认值5秒
+#hystrix.command.default.circuitBreaker.sleepWindowInMilliseconds=3000
+## 熔断触发最小请求次数，默认值是20
+#hystrix.command.default.circuitBreaker.requestVolumeThreshold=2
+## 熔断超时设置，默认为1秒
+#hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds=2000
+management:
+  endpoints:
+   web:
+    exposure:
+      # springboot中暴露健康检查等断点接口 http://localhost:8090/actuator/health
+     include: '*'
+   health:
+     # 暴露健康接口的细节
+     show-details: always

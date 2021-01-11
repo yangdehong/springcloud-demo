@@ -1,0 +1,53 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: service-resume
+  datasource:
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    filters: stat,wall,log4j
+    initialSize: 5
+    maxActive: 20
+    maxPoolPreparedStatementPerConnectionSize: 20
+    maxWait: 60000
+    minEvictableIdleTimeMillis: 300000
+    name: mydb
+    password: '#Daily_ai_call_engine'
+    poolPreparedStatements: true
+    testOnBorrow: false
+    testOnReturn: false
+    testWhileIdle: true
+    timeBetweenEvictionRunsMillis: 60000
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://rm-bp14m38byen9x1gs3mo.mysql.rds.aliyuncs.com:3306/ydh_test?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&autoReconnectForPools=true&useSSL=false&allowMultiQueries=true&rewriteBatchedStatements=true&serverTimezone=GMT%2B8
+    username: ai_call_engine
+    validationQuery: select 'x'
+logging:
+  config: classpath:logback-spring.xml
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+  mapper-locations: mapper/*.xml
+  type-aliases-package: com.ydh.redsheep.servicecommon.pojo
+
+eureka:
+  client:
+    service-url:
+      # eureka server的路径
+      # 把 eureka 集群中的所有 url 都填写了进来，也 可以只写一台，因为各个 eureka server 可以同步注册表
+      defaultZone: http://ydh.com:8761/eureka,http://ydh2.com:8762/eureka
+#    registry-fetch-interval-seconds: 30
+  instance:
+    #使用ip注册，否则会使用主机名注册了(此处考虑到对老版本的兼容，新版本经过实验都是ip)
+    ip-address: true
+    # 实例名称： 192.168.1.103:service-resume:8080，我们可以自定义它，这里注释
+    instance-id: ${spring.cloud.client.ip-address}:${spring.application.name}:${server.port}:@project.version@
+    # 自定义Eureka元数据
+    metadata-map:
+      cluster: c1
+      region: r1
+#    # 服务提供者租约续约间隔时间，默认30秒，一般不需要修改
+#    lease-renewal-interval-in-seconds: 30
+#    # 服务提供者租约到期，服务时效时间，默认值90秒,服务超过90秒没有发生心跳，EurekaServer会将服务从列表移除，一般不需要修改
+#    lease-expiration-duration-in-seconds: 90

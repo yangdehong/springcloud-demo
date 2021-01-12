@@ -35,7 +35,7 @@
         <module>hystrix-dashboard</module>
         <module>hystrix-turbine</module>
         <module>gateway</module>
-        <module>configserver</module>
+        <module>config-server</module>
         <module>zipkin-server</module>
     </modules>
 

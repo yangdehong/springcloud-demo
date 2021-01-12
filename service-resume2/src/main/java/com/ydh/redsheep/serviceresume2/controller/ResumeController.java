@@ -24,7 +24,7 @@ public class ResumeController {
 
     @GetMapping("/openstate")
     public Integer findDefaultResumeState(@RequestParam Long userId) {
-        resumeService.findDefaultResumeByUserId(userId).getIsOpenResume();
+        resumeService.findDefaultResumeByUserId(userId);
         log.debug("====>>>>>>>>>>>>>>我是8080，访问到我这里了......");
         return port;
     }

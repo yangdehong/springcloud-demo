@@ -28,7 +28,7 @@ public class ResumeController {
 //        } catch (InterruptedException e) {
 //            e.printStackTrace();
 //        }
-        resumeService.findDefaultResumeByUserId(userId).getIsOpenResume();
+        resumeService.findDefaultResumeByUserId(userId);
         log.debug("====>>>>>>>>>>>>>>我是8080，访问到我这里了......");
         return port;
     }

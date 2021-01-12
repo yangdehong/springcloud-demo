@@ -1,0 +1,34 @@
+server:
+  port: 9999
+spring:
+  application:
+    name: cloud-oauth-server
+  datasource:
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    filters: stat,wall,log4j
+    initialSize: 5
+    maxActive: 20
+    maxPoolPreparedStatementPerConnectionSize: 20
+    maxWait: 60000
+    minEvictableIdleTimeMillis: 300000
+    name: mydb
+    password: '#Daily_ai_call_engine'
+    poolPreparedStatements: true
+    testOnBorrow: false
+    testOnReturn: false
+    testWhileIdle: true
+    timeBetweenEvictionRunsMillis: 60000
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://rm-bp14m38byen9x1gs3mo.mysql.rds.aliyuncs.com:3306/ydh_test?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&autoReconnectForPools=true&useSSL=false&allowMultiQueries=true&rewriteBatchedStatements=true&serverTimezone=GMT%2B8
+    username: ai_call_engine
+    validationQuery: select 'x'
+eureka:
+  client:
+    serviceUrl: # eureka server的路径
+      defaultZone: http://ydh.com:8761/eureka/,http://ydh2.com:8762/eureka/ #把 eureka 集群中的所有 url 都填写了进来，也可以只写一台，因为各个 eureka server 可以同步注册表
+  instance:
+    #使用ip注册，否则会使用主机名注册了（此处考虑到对老版本的兼容，新版本经过实验都是ip）
+    prefer-ip-address: true
+    #自定义实例显示格式，加上版本号，便于多版本管理，注意是ip-address，早期版本是ipAddress
+    instance-id: ${spring.cloud.client.ip-address}:${spring.application.name}:${server.port}:@project.version@

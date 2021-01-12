@@ -9,7 +9,7 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
     <groupId>com.ydh.redsheep</groupId>
-    <artifactId>configserver</artifactId>
+    <artifactId>config-server</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>configserver</name>
     <description>Demo project for Spring Boot</description>

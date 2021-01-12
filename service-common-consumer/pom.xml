@@ -9,9 +9,9 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
     <groupId>com.ydh.redsheep</groupId>
-    <artifactId>service-autodeliver</artifactId>
+    <artifactId>service-common-consumer</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>service-autodeliver</name>
+    <name>service-common-consumer</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
@@ -21,13 +21,21 @@
     <dependencies>
         <dependency>
             <groupId>com.ydh.redsheep</groupId>
-            <artifactId>service-common-consumer</artifactId>
+            <artifactId>service-common</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
+
+        <!--feign-->
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
         </dependency>
+        <!--熔断器-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+        </dependency>
+
     </dependencies>
 
     <build>

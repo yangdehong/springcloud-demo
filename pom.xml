@@ -25,6 +25,8 @@
         <module>eureka</module>
         <module>eureka2</module>
         <module>service-common</module>
+        <module>service-common-provider</module>
+        <module>service-common-consumer</module>
         <module>service-resume</module>
         <module>service-resume2</module>
         <module>service-autodeliver</module>

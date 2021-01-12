@@ -1,0 +1,15 @@
+server:
+  port: 9411
+
+spring:
+  application:
+    name: zipkin-server
+  # 指定zipkin持久化 和 中间件 都不在这里演示，最好的方式就是直接jar启动
+
+management:
+  metrics:
+    web:
+      server:
+        auto-time-requests: false # 关闭自动检测
+
+

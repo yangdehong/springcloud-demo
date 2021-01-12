@@ -36,6 +36,7 @@
         <module>hystrix-turbine</module>
         <module>gateway</module>
         <module>configserver</module>
+        <module>zipkin-server</module>
     </modules>
 
     <dependencyManagement>

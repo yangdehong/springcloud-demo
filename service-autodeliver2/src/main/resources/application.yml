@@ -6,7 +6,8 @@ spring:
    name: service-autodeliver
 
 logging:
-  config: classpath:logback-spring.xml
+  file:
+    path: logs/${spring.application.name}/
 
 eureka:
   client:

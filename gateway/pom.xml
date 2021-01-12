@@ -19,6 +19,11 @@
     </properties>
 
     <dependencies>
+        <!--链路追踪-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-sleuth</artifactId>
+        </dependency>
         <!-- 日志 -->
         <dependency>
             <groupId>log4j</groupId>

@@ -24,7 +24,8 @@ spring:
     username: ai_call_engine
     validationQuery: select 'x'
 logging:
-  config: classpath:logback-spring.xml
+  file:
+    path: logs/${spring.application.name}/
 mybatis:
   configuration:
     map-underscore-to-camel-case: true

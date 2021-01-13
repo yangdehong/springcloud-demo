@@ -7,7 +7,7 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: 172.16.131.6:8848
+        server-addr: 172.16.131.6:8848,172.16.131.6:8849,172.16.131.6:8850
 
 logging:
   file:

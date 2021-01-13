@@ -1,18 +1,41 @@
-#spring:
-#  cloud:
-#    # config客户端配置,和ConfigServer通信，并告知ConfigServer希望获取的配置信息在哪个文件中
-#    config:
-#      name: service-resume  #配置文件名称
-#      profile: dev  #后缀名称
-#      label: main #分支名称
-#      uri: http://localhost:9200    #ConfigServer配置中心地址
-##  rabbitmq:
-##    host: 127.0.0.1
-##    port: 5672
-##    username: guest
-##    password: guest
-#management:
-#  endpoints:
-#    web:
-#      exposure:
-#        include: "*"
+spring:
+#  application:
+#    name: service-resume
+  # nacos配置
+  cloud:
+    nacos:
+      discovery:
+        # 集群中各节点信息都配置在这里（域名-VIP-绑定映射到各个实例的地址信息）
+        server-addr: 172.16.131.6:8848,172.16.131.6:8849,172.16.131.6:8850
+      #        cluster-name: zhejiang # 集群
+      #        namespace: a0775d4a-e22e-4351-8e45-495697b8a7ed # 命名空间id
+      # nacos config 配置
+      config:
+        server-addr: 172.16.131.6:8848,127.0.0.1:8849,127.0.0.1:8850
+        # 锁定server端的配置文件（读取它的配置项）
+        namespace: a0775d4a-e22e-4351-8e45-495697b8a7ed  # 命名空间id
+        group: DEFAULT_GROUP  # 默认分组就是DEFAULT_GROUP，如果使用默认分组可以不配置
+        file-extension: yaml   #默认properties
+        # dataId 的完整格式 ${prefix}-${spring.profile.active}.${file-extension}
+        # 1、prefix 默认为 spring.application.name 的值，也可以通过配置项spring.cloud.nacos.config.prefix 来配置。
+        # 2、spring.profile.active 即为当前环境对应的 profile。 注意:当spring.profile.active 为空时，对应的连接符 - 也将不存在，dataId 的拼 接格式变成 ${prefix}.${file-extension}
+        # 3、file-exetension 为配置内容的数据格式，可以通过配置项 spring.cloud.nacos.config.file-extension 来配置。目前只支持 properties 和 yaml 类型
+        # 根据规则拼接出来的dataId效果：service-resume.yaml
+
+        # 配置文件获取多个--扩展的配置文件
+        # 优先级:根据规则生成的dataId > 扩展的dataId(对于扩展的dataId，[n] n越大优先级越高)
+        ext-config[0]:
+          data-id: abc.yaml
+          group: DEFAULT_GROUP
+          refresh: true  #开启扩展dataId的动态刷新
+        ext-config[1]:
+          data-id: def.yaml
+          group: DEFAULT_GROUP
+          refresh: true  #开启扩展dataId的动态刷新
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+

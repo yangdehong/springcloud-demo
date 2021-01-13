@@ -25,8 +25,12 @@
         <module>eureka</module>
         <module>eureka2</module>
         <module>service-common</module>
-        <module>service-common-provider</module>
-        <module>service-common-consumer</module>
+        <module>service-common-scn</module>
+        <module>service-common-sca</module>
+        <module>service-common-provider-scn</module>
+        <module>service-common-provider-sca</module>
+        <module>service-common-consumer-scn</module>
+        <module>service-common-consumer-sca</module>
         <module>service-resume</module>
         <module>service-resume2</module>
         <module>service-resume-nacos</module>

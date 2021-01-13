@@ -22,7 +22,7 @@
 
         <dependency>
             <groupId>com.ydh.redsheep</groupId>
-            <artifactId>service-common-provider</artifactId>
+            <artifactId>service-common-provider-scn</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
 

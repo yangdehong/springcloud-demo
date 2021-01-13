@@ -34,6 +34,8 @@
         <module>service-resume</module>
         <module>service-resume2</module>
         <module>service-resume-nacos</module>
+        <module>service-resume-nacos2</module>
+        <module>service-resume-dubbo</module>
         <module>service-autodeliver</module>
         <module>service-autodeliver2</module>
         <module>service-autodeliver3</module>
@@ -44,6 +46,8 @@
         <module>config-server</module>
         <module>zipkin-server</module>
         <module>oauth-server</module>
+        <module>service-autodeliver-sentinel</module>
+        <module>service-dubbo-api</module>
     </modules>
 
     <dependencyManagement>

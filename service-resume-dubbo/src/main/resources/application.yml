@@ -1,0 +1,51 @@
+server:
+  port: 8084
+spring:
+  application:
+    name: service-resume
+  main:
+    allow-bean-definition-overriding: true # 使用dubbo的bean来覆盖
+  datasource:
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    filters: stat,wall,log4j
+    initialSize: 5
+    maxActive: 20
+    maxPoolPreparedStatementPerConnectionSize: 20
+    maxWait: 60000
+    minEvictableIdleTimeMillis: 300000
+    name: mydb
+    password: '#Daily_ai_call_engine'
+    poolPreparedStatements: true
+    testOnBorrow: false
+    testOnReturn: false
+    testWhileIdle: true
+    timeBetweenEvictionRunsMillis: 60000
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://rm-bp14m38byen9x1gs3mo.mysql.rds.aliyuncs.com:3306/ydh_test?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&autoReconnectForPools=true&useSSL=false&allowMultiQueries=true&rewriteBatchedStatements=true&serverTimezone=GMT%2B8
+    username: ai_call_engine
+    validationQuery: select 'x'
+logging:
+  file:
+    path: logs/${spring.application.name}/
+  level:
+    org.springframework.web.servlet.DispatcherServlet: debug
+    org.springframework.cloud.sleuth: debug
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+  mapper-locations: mapper/*.xml
+  type-aliases-package: com.ydh.redsheep.serviceresumenacos.pojo
+dubbo:
+  scan:
+    # dubbo 服务扫描基准包
+    base-packages: com.ydh.redsheep.serviceresumedubbo.service.impl
+  protocol:
+    # dubbo 协议
+    name: dubbo
+    # dubbo 协议端口（ -1 表示自增端口，从 20880 开始）
+    port: -1
+    host: 127.0.0.1
+  registry:
+    # 挂载到 Spring Cloud 的注册中心
+    address: spring-cloud://localhost

@@ -33,11 +33,13 @@
         <module>service-autodeliver</module>
         <module>service-autodeliver2</module>
         <module>service-autodeliver3</module>
+        <module>service-autodeliver-nacos</module>
         <module>hystrix-dashboard</module>
         <module>hystrix-turbine</module>
         <module>gateway</module>
         <module>config-server</module>
         <module>zipkin-server</module>
+        <module>oauth-server</module>
     </modules>
 
     <dependencyManagement>

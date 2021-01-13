@@ -9,9 +9,9 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
     <groupId>com.ydh.redsheep</groupId>
-    <artifactId>service-autodeliver</artifactId>
+    <artifactId>service-autodeliver-nacos</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>service-autodeliver</name>
+    <name>service-autodeliver-nacos</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>

@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.ydh.redsheep</groupId>
-    <artifactId>z-login</artifactId>
+    <artifactId>z-login-provider</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>z-login</name>
+    <name>z-login-provider</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
@@ -19,7 +19,6 @@
     </properties>
 
     <dependencies>
-
         <dependency>
             <groupId>com.ydh.redsheep</groupId>
             <artifactId>service-dubbo-api</artifactId>
@@ -64,11 +63,6 @@
             <groupId>com.alibaba.csp</groupId>
             <artifactId>sentinel-datasource-nacos</artifactId>
         </dependency>
-        <!--nacos config client 依赖-->
-        <dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
-        </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -80,7 +74,6 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-
     </dependencies>
 
     <dependencyManagement>

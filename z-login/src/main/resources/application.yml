@@ -1,23 +1,22 @@
 server:
   port: 80
-eureka:
-  client:
-    serviceUrl: # eureka server的路径
-      defaultZone: http://ydh.com:8761/eureka/,http://ydh2.com:8762/eureka/ #把 eureka 集群中的所有 url 都填写了进来，也可以只写一台，因为各个 eureka server 可以同步注册表
-  instance:
-    #使用ip注册，否则会使用主机名注册了（此处考虑到对老版本的兼容，新版本经过实验都是ip）
-    prefer-ip-address: true
 spring:
   application:
     name: login
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 172.16.131.6:8848 # ,172.16.131.6:8849,172.16.131.6:8850
+    sentinel:
+      transport:
+        dashboard: 127.0.0.1:8080 # sentinel dashboard/console 地址
+        port: 8719   # sentinel会在该端口启动http server，那么这样的话，控制台定义的一些限流等规则才能发送传递过来，
+        # 如果8719端口被占用，那么会依次+1
 
-feign:
-  compression:
-    request:
-      enabled: true
-      mime-types: text/html,application/xml,application/json
-      min-request-size: 2048
-    response:
-      enabled: true
-  hystrix:
-    enabled: true
+dubbo:
+  registry:
+    # 挂载到 Spring Cloud 注册中心
+    address: spring-cloud://localhost
+  cloud:
+    # 订阅服务提供方的应用列表，订阅多个服务提供者使用 "," 连接
+    subscribed-services: login-provider

@@ -2,7 +2,9 @@ package com.ydh.redsheep.zlogin.controller;
 
 import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
+import com.ydh.redsheep.servicedubboapi.service.ResumeService;
 import com.ydh.redsheep.zlogin.pojo.UserPO;
+import org.apache.dubbo.config.annotation.Reference;
 import org.apache.tomcat.util.codec.binary.Base64;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -22,6 +24,9 @@ import java.util.concurrent.TimeUnit;
 @Controller
 @RequestMapping("/api/user")
 public class UserController {
+
+    @Reference(version = "1.0.0")
+    private ResumeService resumeService;
 
     private Cache<String, String> codeCache = CacheBuilder.newBuilder().expireAfterAccess(24, TimeUnit.HOURS).build();
     private Cache<String, UserPO> userCache = CacheBuilder.newBuilder().expireAfterAccess(24, TimeUnit.HOURS).build();

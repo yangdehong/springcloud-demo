@@ -9,9 +9,9 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
     <groupId>com.ydh.redsheep</groupId>
-    <artifactId>service-common-sca</artifactId>
+    <artifactId>service-autodeliver-sentinel</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>service-common-sca</name>
+    <name>service-autodeliver-sentinel</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
@@ -21,26 +21,15 @@
     <dependencies>
         <dependency>
             <groupId>com.ydh.redsheep</groupId>
-            <artifactId>service-common</artifactId>
+            <artifactId>service-common-consumer-sca</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
 
-        <!--nacos client 依赖-->
         <dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
         </dependency>
-        <!--nacos config client 依赖-->
-        <dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
-        </dependency>
-        <!--sentinel 依赖-->
-        <dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
-        </dependency>
-
     </dependencies>
 
     <build>

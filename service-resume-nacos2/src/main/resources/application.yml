@@ -1,0 +1,64 @@
+server:
+  port: 8083
+spring:
+  application:
+    name: service-resume
+  datasource:
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    filters: stat,wall,log4j
+    initialSize: 5
+    maxActive: 20
+    maxPoolPreparedStatementPerConnectionSize: 20
+    maxWait: 60000
+    minEvictableIdleTimeMillis: 300000
+    name: mydb
+    password: '#Daily_ai_call_engine'
+    poolPreparedStatements: true
+    testOnBorrow: false
+    testOnReturn: false
+    testWhileIdle: true
+    timeBetweenEvictionRunsMillis: 60000
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://rm-bp14m38byen9x1gs3mo.mysql.rds.aliyuncs.com:3306/ydh_test?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&autoReconnectForPools=true&useSSL=false&allowMultiQueries=true&rewriteBatchedStatements=true&serverTimezone=GMT%2B8
+    username: ai_call_engine
+    validationQuery: select 'x'
+  # nacos配置
+  cloud:
+    nacos:
+      discovery:
+        # 集群中各节点信息都配置在这里（域名-VIP-绑定映射到各个实例的地址信息）
+        server-addr: 172.16.131.6:8848 #,127.0.0.1:8849,127.0.0.1:8850
+      # nacos config 配置
+#      config:
+#        server-addr: 172.16.131.6:8848 #,127.0.0.1:8849,127.0.0.1:8850
+#        # 锁定server端的配置文件（读取它的配置项）
+#        namespace: 07137f0a-bf66-424b-b910-20ece612395a  # 命名空间id
+#        group: DEFAULT_GROUP  # 默认分组就是DEFAULT_GROUP，如果使用默认分组可以不配置
+#        file-extension: yaml   #默认properties
+#        # 根据规则拼接出来的dataId效果：lagou-service-resume.yaml
+#        ext-config[0]:
+#          data-id: abc.yaml
+#          group: DEFAULT_GROUP
+#          refresh: true  #开启扩展dataId的动态刷新
+#        ext-config[1]:
+#          data-id: def.yaml
+#          group: DEFAULT_GROUP
+#          refresh: true  #开启扩展dataId的动态刷新
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: "*"
+logging:
+  file:
+    path: logs/${spring.application.name}/
+  level:
+    org.springframework.web.servlet.DispatcherServlet: debug
+    org.springframework.cloud.sleuth: debug
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+  mapper-locations: mapper/*.xml
+  type-aliases-package: com.ydh.redsheep.serviceresumenacos.pojo
+

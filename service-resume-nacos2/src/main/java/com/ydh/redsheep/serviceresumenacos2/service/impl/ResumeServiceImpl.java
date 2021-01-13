@@ -1,8 +1,8 @@
-package com.ydh.redsheep.serviceresumenacos.service.impl;
+package com.ydh.redsheep.serviceresumenacos2.service.impl;
 
 import com.ydh.redsheep.servicecommon.pojo.Resume;
-import com.ydh.redsheep.serviceresumenacos.mapper.ResumeMapper;
-import com.ydh.redsheep.serviceresumenacos.service.ResumeService;
+import com.ydh.redsheep.serviceresumenacos2.mapper.ResumeMapper;
+import com.ydh.redsheep.serviceresumenacos2.service.ResumeService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

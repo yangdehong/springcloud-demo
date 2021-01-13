@@ -1,4 +1,4 @@
-package com.ydh.redsheep.serviceresumenacos.service;
+package com.ydh.redsheep.serviceresumenacos2.service;
 
 import com.ydh.redsheep.servicecommon.pojo.Resume;
 

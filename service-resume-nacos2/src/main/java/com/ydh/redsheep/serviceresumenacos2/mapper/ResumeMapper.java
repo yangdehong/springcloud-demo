@@ -1,4 +1,4 @@
-package com.ydh.redsheep.serviceresumenacos.mapper;
+package com.ydh.redsheep.serviceresumenacos2.mapper;
 
 import com.ydh.redsheep.servicecommon.pojo.Resume;
 import tk.mybatis.mapper.common.Mapper;
